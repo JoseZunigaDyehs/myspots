@@ -29,7 +29,6 @@ export const addPost = async (req, res) => {
     const newPost = new Post({ title, description, image });
     const result = await newPost.save();
     return res.send(result);
-    // return res.send("result");
   } catch (error) {
     console.log(error);
     return res.status(500).json({ message: error.message });
