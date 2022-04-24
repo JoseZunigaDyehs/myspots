@@ -7,6 +7,8 @@ import {
   userRoutes,
   pointRoutes,
   crewRoutes,
+  permissionRoutes,
+  roleRoutes,
 } from "./routes/index.js";
 
 const app = express();
@@ -25,8 +27,11 @@ app.use(postRoutes);
 app.use(userRoutes);
 app.use(pointRoutes);
 app.use(crewRoutes);
+app.use(permissionRoutes);
+app.use(roleRoutes);
 
 app.use((error, req, res, next) => {
+  console.log(error);
   res.status(400).end();
 });
 

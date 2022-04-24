@@ -3,10 +3,9 @@ import mongoose from "mongoose";
 const permissionSchema = new mongoose.Schema(
   {
     name: {
-      type: Number,
+      type: String,
       required: true,
     },
-    roleIds: [{ type: mongoose.Schema.Types.ObjectId, ref: "Role" }],
   },
   {
     timestamps: true,

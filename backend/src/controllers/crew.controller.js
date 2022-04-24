@@ -2,10 +2,27 @@ import { Crew, User } from "../models/index.js";
 
 export const getCrews = async (_, res) => {
   try {
-    const Crews = await Crew.find().populate("users", {
-      username: 1,
+    const crews = await Crew.find({})
+      .populate("users", {
+        username: 1,
+      })
+      .lean();
+    const nextCrews = crews.map(({ admins, users, _id, name, description }) => {
+      return {
+        id: _id,
+        name,
+        description,
+        users: users.map(({ _id: userId, username }) => {
+          return {
+            id: userId,
+            username,
+            isAdmin:
+              admins.filter((adminId) => adminId.equals(userId)).length > 0,
+          };
+        }),
+      };
     });
-    return res.send(Crews);
+    return res.send(nextCrews);
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }

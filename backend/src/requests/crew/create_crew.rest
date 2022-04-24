@@ -1,9 +1,0 @@
-POST http://localhost:5000/crew
-Content-Type: application/json
-
-{
-    "name": "Siono Crew",
-    "description": "siono",
-    "admins": ["62657e436415e50ce69c1acd"],
-    "users": ["62657e436415e50ce69c1acd", "62657e4f6415e50ce69c1acf"]
-}

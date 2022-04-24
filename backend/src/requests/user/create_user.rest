@@ -2,8 +2,11 @@ POST http://localhost:5000/user HTTP/1.1
 content-type: application/json
 
 {
-    "username": "Jose",
-    "name": "Jose celis",
-    "email": "asw@caparazon.com",
-    "password": "123456"
+    "email": "user1@gmail.com",
+    "password": "123123",
+    "username": "Tee Ray",
+    "name": "Terry",
+    "crews": [],
+    "points": [],
+    "roles": ["6265b2db149d36fdf68abc32"]
 }

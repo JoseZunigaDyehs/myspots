@@ -1,0 +1,30 @@
+# POST http://localhost:5000/crew
+# Content-Type: application/json
+
+# {
+#     "name": "Repts",
+#     "description": "Repiantes",
+#     "admins": ["6265b7c1d2f86446bcd9dc18", "6265b413102c38a2626d2dc9"],
+#     "users": [
+#         "6265b7c1d2f86446bcd9dc18", 
+#         "6265b78fd2f86446bcd9dc16", 
+#         "6265b6c8d2f86446bcd9dc12", 
+#         "6265b413102c38a2626d2dc9"
+#         ]
+# }
+
+# GET http://localhost:5000/crews
+
+# GET http://localhost:5000/roles
+
+# DELETE http://localhost:5000/crews/6264eceaa239919cf1feee06
+
+# PUT http://localhost:5000/crews/62657e696415e50ce69c1ad2
+# Content-Type: application/json
+
+# {
+#     "name": "Siono Crew",
+#     "description": "siono",
+#     "admins": ["62657e436415e50ce69c1acd"],
+#     "users": ["62657e436415e50ce69c1acd"]
+# }

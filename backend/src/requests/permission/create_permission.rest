@@ -1,0 +1,6 @@
+POST http://localhost:5000/permission
+Content-Type: application/json
+
+{
+    "name": "AddUserToCrew"
+}

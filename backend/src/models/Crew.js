@@ -35,6 +35,10 @@ crewSchema.set("toJSON", {
   transform: (document, returnedObject) => {
     returnedObject.id = returnedObject._id;
     delete returnedObject._id;
+    delete returnedObject.createdAt;
+    delete returnedObject.updatedAt;
+    delete returnedObject.__v;
+    delete returnedObject.admins;
   },
 });
 

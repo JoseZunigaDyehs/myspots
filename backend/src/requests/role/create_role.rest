@@ -1,0 +1,17 @@
+POST http://localhost:5000/role
+Content-Type: application/json
+
+# {
+#     "name": "Admin",
+#     "permissions": ["6265af3cf8e74631eaa98c74"]
+# }
+
+# {
+#     "name": "Curent User",
+#     "permissions": ["6265af3cf8e74631eaa98c74"]
+# }
+
+{
+    "name": "Crew Admin",
+    "permissions": ["6265af3cf8e74631eaa98c74"]
+}

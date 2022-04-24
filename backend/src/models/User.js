@@ -35,6 +35,7 @@ userSchema.set("toJSON", {
     returnedObject.id = returnedObject._id;
     delete returnedObject._id;
     delete returnedObject.passwordHash;
+    delete returnedObject.createdAt;
   },
 });
 

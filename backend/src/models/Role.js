@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const roleSchema = new mongoose.Schema(
   {
     name: {
-      type: Number,
+      type: String,
       required: true,
     },
     permissions: [{ type: mongoose.Schema.Types.ObjectId, ref: "Permission" }],

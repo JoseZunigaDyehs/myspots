@@ -3,7 +3,7 @@ import bcrypt from "bcrypt";
 
 export const getUsers = async (_, res) => {
   try {
-    const users = await User.find();
+    const users = await User.find().populate("roles", { name: 1 });
     return res.send(users);
   } catch (error) {
     return res.status(500).json({ message: error.message });
@@ -12,9 +12,9 @@ export const getUsers = async (_, res) => {
 
 export const addUser = async (req, res) => {
   try {
-    const { username, name, email, password } = req.body;
+    const { username, name, email, password, roles } = req.body;
     const passwordHash = await bcrypt.hash(password, 10);
-    const newUser = new User({ username, name, email, passwordHash });
+    const newUser = new User({ username, name, email, passwordHash, roles });
     const result = await newUser.save();
     return res.send(result);
   } catch (error) {

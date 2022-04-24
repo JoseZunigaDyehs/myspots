@@ -1,0 +1,1 @@
+DELETE http://localhost:5000/permissions/6264eceaa239919cf1feee06
