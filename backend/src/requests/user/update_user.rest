@@ -1,0 +1,9 @@
+PUT http://localhost:5000/user/:id
+Content-Type: application/json
+
+{
+    "username": "Dyehs",
+    "name": "Jose Zuniga",
+    "email": "asw@caparazon.com",
+    "password": "123456"
+}

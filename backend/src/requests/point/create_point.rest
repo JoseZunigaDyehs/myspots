@@ -1,0 +1,12 @@
+POST http://localhost:5000/point
+Content-Type: application/json
+
+{
+      "latitude":-33.52763520000001,
+      "longitude":-70.5888611,
+      "title":"TESTING",
+      "description":"sdfsf",
+      "isPublic":false,
+      "state":1,
+      "usersShared":["6264ec736337be27a272a12e", "6264f89127d3fd4f3fafa95a"]
+}

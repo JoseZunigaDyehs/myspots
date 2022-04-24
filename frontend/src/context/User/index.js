@@ -15,14 +15,17 @@ export const useUser = () => {
   }
   return context;
 };
+
+//Es la circunferencia del punto en el mapa
 const delta = { latitudeDelta: 0.05, longitudeDelta: 0.05 };
+
 const initialState = {
   id: 1,
-  name: "ASW Dyehs",
+  username: "ASW Dyehs",
   email: "zuniga.joseignacio@gmail.com",
   roleId: 1,
   crewIds: [1, 2],
-  delta,
+  delta, //????
   currentMarker: {
     latlng: {
       ...delta,

@@ -1,0 +1,12 @@
+PUT http://localhost:5000/user/:id
+Content-Type: application/json
+
+{
+    "latitude":"",
+    "longitude":"",
+    "title":"",
+    "description":"",
+    "isPublic":true,
+    "state":1,
+    "usersShared":[]
+}

@@ -1,6 +1,6 @@
 export const userMock = {
   id: 1,
-  name: "ASW Dyehs",
+  username: "ASW Dyehs",
   email: "zuniga.joseignacio@gmail.com",
   roleId: 1,
   crewIds: [1, 2],

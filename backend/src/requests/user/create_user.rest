@@ -1,0 +1,9 @@
+POST http://localhost:5000/user HTTP/1.1
+content-type: application/json
+
+{
+    "username": "Jose",
+    "name": "Jose celis",
+    "email": "asw@caparazon.com",
+    "password": "123456"
+}
