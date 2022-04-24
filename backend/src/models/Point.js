@@ -13,6 +13,7 @@ const pointSchema = new mongoose.Schema(
     title: { type: String, trim: true, required: true },
     description: { type: String, trim: true, required: true },
     isPublic: { type: Boolean, trim: true, required: true },
+    createdBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
     state: { type: mongoose.Schema.Types.ObjectId, ref: "PointState" },
     usersShared: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
   },

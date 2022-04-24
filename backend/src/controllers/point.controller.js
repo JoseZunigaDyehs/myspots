@@ -20,6 +20,7 @@ export const addPoint = async (req, res) => {
       isPublic = true,
       state,
       usersShared = [],
+      createdBy,
     } = req.body;
     const point = new Point({
       latitude,
@@ -28,6 +29,7 @@ export const addPoint = async (req, res) => {
       description,
       isPublic,
       state,
+      createdBy,
       usersShared: isPublic ? [] : usersShared,
     });
     const savedPoint = await point.save();
@@ -54,6 +56,7 @@ export const updatePoint = async (req, res) => {
       description,
       isPublic = true,
       state,
+      createdBy,
       usersShared = [],
     } = req.body;
     const oldPoint = await Point.findById(id);
@@ -73,6 +76,7 @@ export const updatePoint = async (req, res) => {
         description,
         isPublic,
         state,
+        createdBy,
         usersShared: isPublic ? [] : usersShared,
       },
       { new: true }

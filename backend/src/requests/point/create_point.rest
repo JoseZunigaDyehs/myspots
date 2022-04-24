@@ -7,6 +7,7 @@ Content-Type: application/json
       "title":"TESTING",
       "description":"sdfsf",
       "isPublic":false,
-      "state":1,
-      "usersShared":["6264ec736337be27a272a12e", "6264f89127d3fd4f3fafa95a"]
+      "state":"6265d24cec436a8590a8a76a",
+      "createdBy": ["6265b7c1d2f86446bcd9dc18"],
+      "usersShared":["6265b7c1d2f86446bcd9dc18", "6265b78fd2f86446bcd9dc16"]
 }

@@ -1,0 +1,36 @@
+GET http://localhost:5000/users
+
+# GET http://localhost:5000/crews
+
+# GET http://localhost:5000/roles
+
+GET http://localhost:5000/pointStates
+
+# GET http://localhost:5000/points
+
+# GET http://localhost:5000/permissions
+
+# POST http://localhost:5000/role
+# Content-Type: application/json
+
+# {
+#     "name": "Admin",
+#     "permissions": ["6265af3cf8e74631eaa98c74"]
+# }
+
+# {
+#     "name": "Curent User",
+#     "permissions": ["6265af3cf8e74631eaa98c74"]
+# }
+
+# {
+#     "name": "Crew Admin",
+#     "permissions": ["6265af3cf8e74631eaa98c74"]
+# }
+
+PUT http://localhost:5000/roles/6265b2db149d36fdf68abc32
+Content-Type: application/json
+
+{
+   "permissions": []
+}

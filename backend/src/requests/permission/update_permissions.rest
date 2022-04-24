@@ -2,5 +2,5 @@ PUT http://localhost:5000/permissions/62657e696415e50ce69c1ad2
 Content-Type: application/json
 
 {
-    "name": "Siono Crew",
+    "name": "Siono Crew"
 }
