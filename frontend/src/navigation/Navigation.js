@@ -7,7 +7,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 const Stack = createNativeStackNavigator();
 
 const routes = [
-  { name: "HOME", component: Home },
+  { name: "Home", component: Home },
   { name: "Login", component: Login },
   { name: "Map", component: Map },
 ];

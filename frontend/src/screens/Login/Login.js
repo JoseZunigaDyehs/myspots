@@ -10,7 +10,13 @@ function Login() {
         <Text style={tw``}>Ingresa tus datos</Text>
       </View>
       <View>
-        <Input label="Correo" placeholder="Ingresa tu correo" />
+        <Input
+          label="Correo/Username"
+          placeholder="Ingresa tu correo/username"
+        />
+      </View>
+      <View>
+        <Input label="Password" placeholder="Ingresa tu password" />
       </View>
     </SafeArea>
   );

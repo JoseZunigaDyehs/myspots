@@ -1,26 +1,26 @@
 import { PointState } from "../models/index.js";
 
-export const getPointStates = async (_, res) => {
+export const getPointStates = async (_, res, next) => {
   try {
     const pointState = await PointState.find();
     return res.json(pointState);
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    next(error);
   }
 };
 
-export const addPointState = async (req, res) => {
+export const addPointState = async (req, res, next) => {
   try {
     const { name } = req.body;
     const pointState = new PointState({ name });
     const savedPointState = await pointState.save();
     return res.send(savedPointState);
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    next(error);
   }
 };
 
-export const updatePointState = async (req, res) => {
+export const updatePointState = async (req, res, next) => {
   try {
     const { id } = req.params;
     const { name } = req.body;
@@ -31,11 +31,11 @@ export const updatePointState = async (req, res) => {
     );
     return res.send(pointState);
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    next(error);
   }
 };
 
-export const removePointState = async (req, res) => {
+export const removePointState = async (req, res, next) => {
   try {
     const { id } = req.params;
     const removedPointState = await PointState.findByIdAndRemove(id);
@@ -44,6 +44,6 @@ export const removePointState = async (req, res) => {
     }
     return res.send("Se ha eliminado");
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    next(error);
   }
 };

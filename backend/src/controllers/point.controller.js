@@ -1,16 +1,16 @@
 import { POINT_STATE } from "../enums/pointMarker.js";
 import { Point, User } from "../models/index.js";
 
-export const getPoints = async (_, res) => {
+export const getPoints = async (_, res, next) => {
   try {
     const points = await Point.find().populate(["usersShared", "state"]);
     return res.json(points);
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    next(error);
   }
 };
 
-export const addPoint = async (req, res) => {
+export const addPoint = async (req, res, next) => {
   try {
     const {
       latitude,
@@ -42,11 +42,11 @@ export const addPoint = async (req, res) => {
     );
     return res.send(savedPoint);
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    next(error);
   }
 };
 
-export const updatePoint = async (req, res) => {
+export const updatePoint = async (req, res, next) => {
   try {
     const { id } = req.params;
     const {
@@ -90,11 +90,11 @@ export const updatePoint = async (req, res) => {
     );
     return res.send(point);
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    next(error);
   }
 };
 
-export const removePoint = async (req, res) => {
+export const removePoint = async (req, res, next) => {
   try {
     const { id } = req.params;
     const oldPoint = await Point.findById(id);
@@ -107,11 +107,11 @@ export const removePoint = async (req, res) => {
     }
     return res.send("Se ha eliminado");
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    next(error);
   }
 };
 
-export const getPointById = async (req, res) => {
+export const getPointById = async (req, res, next) => {
   try {
     const { id } = req.params;
     const point = await Point.findById(id);
@@ -120,6 +120,6 @@ export const getPointById = async (req, res) => {
     }
     return res.send(`Point ${post}`);
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    next(error);
   }
 };

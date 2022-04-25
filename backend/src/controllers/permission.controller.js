@@ -1,15 +1,15 @@
 import { Permission } from "../models/index.js";
 
-export const getPermissions = async (_, res) => {
+export const getPermissions = async (_, res, next) => {
   try {
     const permission = await Permission.find();
     return res.json(permission);
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    next(error);
   }
 };
 
-export const addPermission = async (req, res) => {
+export const addPermission = async (req, res, next) => {
   try {
     console.log("asdasdasd");
     const { name } = req.body;
@@ -17,11 +17,11 @@ export const addPermission = async (req, res) => {
     const savedPermission = await permission.save();
     return res.send(savedPermission);
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    next(error);
   }
 };
 
-export const updatePermission = async (req, res) => {
+export const updatePermission = async (req, res, next) => {
   try {
     const { id } = req.params;
     const { name } = req.body;
@@ -32,11 +32,11 @@ export const updatePermission = async (req, res) => {
     );
     return res.send(permission);
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    next(error);
   }
 };
 
-export const removePermission = async (req, res) => {
+export const removePermission = async (req, res, next) => {
   try {
     const { id } = req.params;
     const removedPermission = await Permission.findByIdAndRemove(id);
@@ -45,11 +45,11 @@ export const removePermission = async (req, res) => {
     }
     return res.send("Se ha eliminado");
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    next(error);
   }
 };
 
-export const getPermissionById = async (req, res) => {
+export const getPermissionById = async (req, res, next) => {
   try {
     const { id } = req.params;
     const permission = await Permission.findById(id);
@@ -58,6 +58,6 @@ export const getPermissionById = async (req, res) => {
     }
     return res.send(`Permission ${permission}`);
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    next(error);
   }
 };

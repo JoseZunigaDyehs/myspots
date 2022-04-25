@@ -5,3 +5,4 @@ export * from "./point.controller.js";
 export * from "./permission.controller.js";
 export * from "./role.controller.js";
 export * from "./pointState.controller.js";
+export * from "./login.controller.js";

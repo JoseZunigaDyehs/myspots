@@ -2,16 +2,16 @@ import { Post } from "../models/index.js";
 import { removeImage, uploadImage } from "../utils/cloudinary.js";
 import fs from "fs-extra";
 
-export const getPosts = async (_, res) => {
+export const getPosts = async (_, res, next) => {
   try {
     const posts = await Post.find();
     return res.send(posts);
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    next(error);
   }
 };
 
-export const addPost = async (req, res) => {
+export const addPost = async (req, res, next) => {
   try {
     const { title, description } = req.body;
     let image = "";
@@ -31,21 +31,21 @@ export const addPost = async (req, res) => {
     return res.send(result);
   } catch (error) {
     console.log(error);
-    return res.status(500).json({ message: error.message });
+    next(error);
   }
 };
 
-export const updatePost = async (req, res) => {
+export const updatePost = async (req, res, next) => {
   try {
     const { id } = req.params;
     const post = await Post.findByIdAndUpdate(id, req.body, { new: true });
     return res.send(post);
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    next(error);
   }
 };
 
-export const removePost = async (req, res) => {
+export const removePost = async (req, res, next) => {
   try {
     const { id } = req.params;
     const postRemoved = await Post.findByIdAndRemove(id);
@@ -57,11 +57,11 @@ export const removePost = async (req, res) => {
     }
     return res.send("Se ha eliminado");
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    next(error);
   }
 };
 
-export const getPostById = async (req, res) => {
+export const getPostById = async (req, res, next) => {
   try {
     const { id } = req.params;
     const post = await Post.findById(id);
@@ -70,6 +70,6 @@ export const getPostById = async (req, res) => {
     }
     return res.send(`Post ${post}`);
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    next(error);
   }
 };

@@ -10,7 +10,10 @@ import {
   permissionRoutes,
   roleRoutes,
   pointStateRoutes,
+  loginRoutes,
 } from "./routes/index.js";
+import { errorHandler } from "./middlewares/errorHandler.js";
+import { auth } from "./middlewares/auth.js";
 
 const app = express();
 //Middlewares
@@ -23,7 +26,9 @@ app.use(
     tempFileDir: "./uploads",
   })
 );
-//Routes
+//Routes\
+app.use(loginRoutes);
+app.use(auth);
 app.use(postRoutes);
 app.use(userRoutes);
 app.use(pointRoutes);
@@ -31,6 +36,8 @@ app.use(crewRoutes);
 app.use(permissionRoutes);
 app.use(roleRoutes);
 app.use(pointStateRoutes);
+
+app.use(errorHandler);
 
 app.use((error, req, res, next) => {
   console.log(error);

@@ -1,6 +1,6 @@
 import { Crew, User } from "../models/index.js";
 
-export const getCrews = async (_, res) => {
+export const getCrews = async (_, res, next) => {
   try {
     const crews = await Crew.find({})
       .populate("users", {
@@ -24,11 +24,11 @@ export const getCrews = async (_, res) => {
     });
     return res.send(nextCrews);
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    next(error);
   }
 };
 
-export const addCrew = async (req, res) => {
+export const addCrew = async (req, res, next) => {
   try {
     const { description, name, users, admins } = req.body;
     const crew = new Crew({ description, name, users, admins });
@@ -42,11 +42,11 @@ export const addCrew = async (req, res) => {
     );
     return res.send(savedCrew);
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    next(error);
   }
 };
 
-export const updateCrew = async (req, res) => {
+export const updateCrew = async (req, res, next) => {
   try {
     console.log("first");
     const { id } = req.params;
@@ -74,11 +74,11 @@ export const updateCrew = async (req, res) => {
     );
     return res.send(crew);
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    next(error);
   }
 };
 
-export const removeCrew = async (req, res) => {
+export const removeCrew = async (req, res, next) => {
   try {
     const { id } = req.params;
     const oldCrew = await Crew.findById(id);
@@ -95,11 +95,11 @@ export const removeCrew = async (req, res) => {
     }
     return res.send("Se ha eliminado");
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    next(error);
   }
 };
 
-export const getCrewById = async (req, res) => {
+export const getCrewById = async (req, res, next) => {
   try {
     const { id } = req.params;
     const crew = await Crew.findById(id);
@@ -108,6 +108,6 @@ export const getCrewById = async (req, res) => {
     }
     return res.send(`Crew ${post}`);
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    next(error);
   }
 };

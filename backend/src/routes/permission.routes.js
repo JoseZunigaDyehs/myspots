@@ -8,7 +8,6 @@ import {
 } from "../controllers/index.js";
 
 const router = Router();
-console.log("asdasdasdkjhdsaih asidh ");
 router.get("/permissions", getPermissions);
 router.post("/permission", addPermission);
 router.put("/permissions/:id", updatePermission);
